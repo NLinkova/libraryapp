@@ -41,7 +41,7 @@ router.get("/books/:id", (req, res) => {
 router.post("/books/create", (req, res) => {
     // req.body represents the form field data  (json of body of fetch)
     let book = req.body;
-    let user = req.session.user;
+    // let user = req.session.user;
 
     // each name references the 'name' attribute in the form
     bookModel.createBook(
@@ -72,6 +72,7 @@ router.post("/books/create", (req, res) => {
 router.post("/books/update", (req, res) => {
     // the req.body represents the posted json data 
     let book = req.body;
+    let user = req.session.user;
 
     //each of the name below represent the 'name' attribute in the form
     bookModel.updateBook(
@@ -89,7 +90,8 @@ router.post("/books/update", (req, res) => {
     .then((results) => {
         if (results.affectedRows > 0) {
             res.status(200).json("book updated")
-            logModel.updateLogEntryBook(book.bookID)
+            logModel.updateLogEntryBook(book.bookID, user.userID)
+            // logModel.addLogEntryBook(results.insertId, user.userID)
         } else {
             res.status(404).json("book not found")
         }

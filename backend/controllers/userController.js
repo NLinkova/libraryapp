@@ -9,6 +9,12 @@ const userModel = require("../models/userModel")
 
 // define a api/users endpoint that responds with an array of all users
 router.get("/users", (req, res) => {
+    if (req.session.user.accessRights !="admin") {
+        // send back an error message
+        res.status(403).json("admin only action")
+        //stop the response handler here
+        return
+    }
     userModel.getAllUsers()
         .then((result) => {
             res.status(200).json(result)

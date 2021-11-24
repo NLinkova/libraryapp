@@ -12,6 +12,14 @@ function postLogoutUser() {
         })
 }
 
+// function disabledUserList() {
+//     let link = document.getElementById('user-list_link');
+//     if(req.session.user.accessRights !="admin") {
+//         link.style.display = "none";
+//     } else {
+//         link.style.display = "block";
+//     }
+// }
 
 function fetchHeader () {
     let header = document.getElementsByTagName("header")
@@ -23,5 +31,6 @@ function fetchHeader () {
 }
   
 fetchHeader()
+// disabledUserList()
 
 const inputElement = document.getElementsByTagName("input")

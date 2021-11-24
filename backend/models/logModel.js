@@ -6,7 +6,7 @@ module.exports.addLogEntryBook = (bookID, userID) => {
 
 }
 
-module.exports.updateLogEntryBook = (bookID) => {
-    return db.query("UPDATE changelog SET dateChanged=CURDATE() WHERE bookID=?", [bookID]);
+module.exports.updateLogEntryBook = (bookID, userID) => {
+    return db.query("UPDATE changelog SET dateChanged=CURDATE() WHERE bookID=?", [bookID, userID]);
     
 }
