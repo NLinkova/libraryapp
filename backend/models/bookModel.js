@@ -2,7 +2,30 @@
 const db = require("../database") // export from the database
 
 module.exports.getAllBooks = () => {
-   return db.query("SELECT * FROM popularbooks.book INNER JOIN author ON book.authorID = popularbooks.author.authorID")
+  return db.query(`SELECT 
+    b.bookID, 
+    b.bookTitle,
+    b.originalTitle,
+    b.yearofPublication,
+    b.genre,
+    b.millionsSold,
+    b.languageWritten,
+    b.coverImagePath,
+    b.authorID,
+    a.surname as authorSurname, 
+    a.name as authorName,
+    u.username,
+    u.firstName,
+    u.lastName,
+    u.userID,
+    c.dateCreated,
+    c.dateChanged
+  FROM 
+    book b 
+    INNER JOIN author a ON b.authorID = a.authorID
+    LEFT JOIN changelog c ON b.bookID = c.bookID
+    LEFT JOIN users u ON u.userID = c.userID
+  ORDER BY b.bookTitle, b.bookID`)
 }
 
 module.exports.getBookById = (id) => {     
