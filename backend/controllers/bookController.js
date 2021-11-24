@@ -41,7 +41,7 @@ router.get("/books/:id", (req, res) => {
 router.post("/books/create", (req, res) => {
     // req.body represents the form field data  (json of body of fetch)
     let book = req.body;
-    // let user = req.session.user;
+    let user = req.session.user;
 
     // each name references the 'name' attribute in the form
     bookModel.createBook(

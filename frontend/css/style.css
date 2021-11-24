@@ -44,3 +44,7 @@ tr, td {
 img {
     width: 40px;
 }
+
+input:not(:focus):not(:placeholder-shown):invalid {
+    border: red solid 2px;
+}
