@@ -1,0 +1,46 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    text-align: center;
+    margin: 20px auto;
+}
+
+form {
+    width: 75%;
+    margin: 20px auto;
+}
+
+#login-user-form {
+    width: 250px;
+}
+
+#update-user-form {
+    width: 500px;
+}
+
+section {
+    width: 75%;
+    margin: auto;
+}
+
+form > input {
+    display: block;
+}
+
+input {
+    margin: 10px;
+}
+
+label {
+    margin-top: 10px;
+}
+
+tr, td {
+    padding: 1em auto;
+}
+
+img {
+    width: 40px;
+}
