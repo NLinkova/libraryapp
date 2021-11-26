@@ -34,10 +34,27 @@ server.use((req, res, next) => {
         "/js/header.js",
         
     ]
+
+    // define a list of ULs for admin only
+    let adminOnlyUrls = [
+        "/create_user.html",
+        "/js/create_user.js",
+        "/update_user.html",
+        "/js/update_user.js",
+        "/user_list.html",
+        "/js/user_list.js",        
+    ]
+
     // if the user is logged in
     if (userLoggedIn) {
-        //let them through
-        next() //next middleware, or step in the pipeline
+        // if it is admin
+        if (req.session.user.accessRights == 'admin' || !adminOnlyUrls.includes(req.originalUrl)) {
+            //let admin through
+            next() //next middleware, or step in the pipeline
+        } else {
+            //if it is user go to book_list
+            res.redirect("./book_list.html")
+        }
     } else {
         // Else (they are not logged in)
         // Check if the url they want is allowed

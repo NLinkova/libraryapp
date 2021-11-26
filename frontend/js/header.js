@@ -24,6 +24,3 @@ function fetchHeader () {
 }
   
 fetchHeader()
-
-
-const inputElement = document.getElementsByTagName("input")
