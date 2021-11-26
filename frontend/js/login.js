@@ -1,3 +1,4 @@
+// funstion to login for users
 function postLoginUser() {
     // get access to the login user form
     let loginUserForm = document.getElementById("login-user-form")

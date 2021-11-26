@@ -36,8 +36,8 @@ router.get("/books/:id", (req, res) => {
     })
 })
 
-// creating user req
-
+// creating book req
+ //Define an api/books/create endpoint that respondes with a specific book by id and create book 
 router.post("/books/create", (req, res) => {
     // req.body represents the form field data  (json of body of fetch)
     let book = req.body;
@@ -45,14 +45,14 @@ router.post("/books/create", (req, res) => {
 
     // each name references the 'name' attribute in the form
     bookModel.createBook(
-        book.bookTitle,
-        book.originalTitle,
-        book.yearofPublication,
-        book.genre,
-        book.millionsSold,
-        book.languageWritten,
-        book.coverImagePath,
-        book.authorID
+        validator.escape(book.bookTitle),
+        validator.escape(book.originalTitle),
+        validator.escape(book.yearofPublication),
+        validator.escape(book.genre),
+        validator.escape( book.millionsSold),
+        validator.escape(book.languageWritten),
+        validator.escape(book.coverImagePath),
+        validator.escape(book.authorID)
     ) 
 
     .then((results) => { // result это про результат запроса, не про количество даты
@@ -68,7 +68,7 @@ router.post("/books/create", (req, res) => {
 })
 
 
-// updating user data. define an api/users/update that updates an existing user
+// updating book data. define an api/book/update that updates an existing user
 router.post("/books/update", (req, res) => {
     // the req.body represents the posted json data 
     let book = req.body;
@@ -76,15 +76,15 @@ router.post("/books/update", (req, res) => {
 
     //each of the name below represent the 'name' attribute in the form
     bookModel.updateBook(
-        book.bookID,
-        book.bookTitle,
-        book.originalTitle,
-        book.yearofPublication,
-        book.genre,
-        book.millionsSold,
-        book.languageWritten,
-        book.coverImagePath,
-        book.authorID
+        validator.escape(book.bookID),
+        validator.escape(book.bookTitle),
+        validator.escape(book.originalTitle),
+        validator.escape(book.yearofPublication),
+        validator.escape(book.genre),
+        validator.escape( book.millionsSold),
+        validator.escape(book.languageWritten),
+        validator.escape(book.coverImagePath),
+        validator.escape(book.authorID)
     )
 
     .then((results) => {

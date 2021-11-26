@@ -1,3 +1,4 @@
+//to send data to create book
 function postCreateBook() {  
     // Get access to the create user form element
     let createBookForm = document.getElementById("create-book-form")
@@ -38,6 +39,7 @@ function postCreateBook() {
             },
             body: formDataJSON,
         })
+        //turn data into json format
         .then(res => res.json())
         .then(res => {
             console.log('book request sent!')
@@ -50,12 +52,12 @@ function postCreateBook() {
         })        
 }
 
-// Create a table of existing book covers and do the same thing.
+// Create a list of existing authors
 fetch("/api/authors")
+//turn list into json format
     .then(res => res.json())
     .then((authors) => {
         let authorSelect = document.getElementById("author")
-
         for (let author of authors) {
             authorSelect.innerHTML 
             += `<option value="${author.authorID}">
@@ -64,12 +66,11 @@ fetch("/api/authors")
         }
 })
 
-
+// Create a list of existing book covers and do the same thing.
 fetch("/api/books")
     .then(res => res.json())
     .then((books) => {
         let bookSelect = document.getElementById("cover-image")
-
         for (let book of books) {
             bookSelect.innerHTML 
             += `<option value="${book.coverImagePath}">

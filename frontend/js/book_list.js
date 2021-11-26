@@ -1,3 +1,4 @@
+//to load books list
 fetch("api/books")
     .then(response => response.json())
     .then(books => {

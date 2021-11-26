@@ -1,3 +1,4 @@
+//to load authors list
 fetch("api/authors")
     .then(response => response.json())
     .then(authors => {

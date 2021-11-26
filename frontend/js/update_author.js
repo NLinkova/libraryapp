@@ -3,7 +3,7 @@ let urlParameters = new URLSearchParams(window.location.search) //this represent
 
 // access the user id from the query string (id=2)
 let authorId = urlParameters.get("id")
-
+//load existing data from DB
 if (authorId) {
     fetch(`api/authors/${authorId}`) 
         .then(res => res.json())

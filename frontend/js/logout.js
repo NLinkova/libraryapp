@@ -1,3 +1,4 @@
+// log out function
 function postLogoutUser() {
     fetch("/api/users/logout", {
         method: "POST"

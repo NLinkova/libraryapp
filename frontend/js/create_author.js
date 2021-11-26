@@ -1,3 +1,4 @@
+//to send data to create author
 function postCreateAuthor() {
     // Get access to the create user form element
     let createAuthorForm = document.getElementById("create-author-form")

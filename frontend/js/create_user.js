@@ -1,3 +1,4 @@
+//to send data to create user
 function postCreateUser() {
     // Get access to the create user form element
     let createUserForm = document.getElementById("create-user-form")
@@ -35,6 +36,7 @@ function postCreateUser() {
             },
             body: formDataJSON,
         })
+        //convert data to json format
         .then(res => res.json())
         .then(res => {
             // Handle the response from the server

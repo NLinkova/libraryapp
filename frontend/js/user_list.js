@@ -1,3 +1,4 @@
+//fetch to oploadied data
 fetch("api/users")
     .then(response => response.json())
     .then(users => {
@@ -14,5 +15,5 @@ fetch("api/users")
                     <td><a href="delete_user.html?id=${user.userID}">Delete</a></td> 
                 </tr>                
             `
-        } // add update_user and delete_user html pages
+        } 
     })

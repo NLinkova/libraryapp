@@ -4,6 +4,7 @@ let urlParameters = new URLSearchParams(window.location.search) //this represent
 // access the user id from the query string (id=2)
 let bookId = urlParameters.get("id")
 
+//load existing data from DB
 if (bookId) {
     fetch(`api/books/${bookId}`) 
         .then(res => res.json())

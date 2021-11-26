@@ -1,4 +1,5 @@
 const express = require("express")
+const validator = require("validator")
 // Create a router so that we can define API
 // routes in this file.
 const router = express.Router()
@@ -6,6 +7,7 @@ const router = express.Router()
 // book data in this file.
 const authorModel = require("../models/authorModel")
 
+// define a api/authors endpoint that responds with an array of all authors
 router.get("/authors", (req, res) => {
     authorModel.getAllAuthors()
         .then((results) => {
@@ -17,7 +19,7 @@ router.get("/authors", (req, res) => {
         })
 })
 
-//Define an api/books/:id endpoint that respondes with a specific book by id
+//Define an api/authors/:id endpoint that respondes with a specific author by id
 router.get("/authors/:id", (req, res) => { 
     authorModel.getAuthorById(req.params.id)
      .then((results) => {
@@ -33,19 +35,19 @@ router.get("/authors/:id", (req, res) => {
      })
  })
  
- // creating user req
- 
+ // creating author req 
+ //Define an api/authors/creste endpoint that respondes with a specific author by id and create author 
  router.post("/authors/create", (req, res) => {
      // req.body represents the form field data  (json of body of fetch)
      let author = req.body;
  
      // each name references the 'name' attribute in the form
      authorModel.createAuthor(
-        author.name,
-        author.surname,
-        author.nationality,
-        author.birthYear,
-        author.deathYear
+        validator.escape(author.name),
+        validator.escape(author.surname),
+        validator.escape(author.nationality),
+        validator.escape(author.birthYear),
+        validator.escape(author.deathYear)
      ) 
  
      .then((results) => { // result это про результат запроса, не про количество даты
@@ -60,19 +62,19 @@ router.get("/authors/:id", (req, res) => {
  })
  
  
- // updating user data. define an api/users/update that updates an existing user
+ // updating authors data. define an api/authors/update that updates an existing author
  router.post("/authors/update", (req, res) => {
      // the req.body represents the posted json data 
      let author = req.body;
  
      //each of the name below represent the 'name' attribute in the form
      authorModel.updateAuthor(
-        author.authorId,
-        author.name,
-        author.surname,
-        author.nationality,
-        author.birthYear,
-        author.deathYear
+        validator.escape(author.authorID),
+        validator.escape(author.name),
+        validator.escape(author.surname),
+        validator.escape(author.nationality),
+        validator.escape(author.birthYear),
+        validator.escape(author.deathYear)
      )
  
      .then((results) => {
@@ -89,12 +91,12 @@ router.get("/authors/:id", (req, res) => {
  })
  
  
- // delete book by id
+ // delete author by id
  router.post("/authors/delete", (req, res) => {
-     // Access the book id from the body of the request
+     // Access the author id from the body of the request
      let authorId = req.body.authorId
  
-     // Ask the model to delete the book with bookId
+     // Ask the model to delete the author with bookId
      authorModel.deleteAuthor(authorId)
          .then((results) => {
              if (results.affectedRows > 0) {

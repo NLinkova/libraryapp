@@ -27,8 +27,7 @@ router.get("/users", (req, res) => {
         })
 })
 
-// creating user req
-
+ //Define an api/users/create endpoint that respondes with a specific user by id and create user 
 router.post("/users/create", (req, res) => {
     //only admins use this endpoint
     if (req.session.user.accessRights !="admin") {
@@ -66,6 +65,12 @@ router.post("/users/create", (req, res) => {
         console.log(error)
         res.status(500).json('query error - failed to create user')
     })
+})
+
+
+// define api such acces reights and gets users rights
+router.get("users/status" , (req, res) => {
+    res.status(200).json(req.session.user.accessRights)
 })
 
 // request user by id
@@ -139,6 +144,7 @@ router.post("/users/delete", (req,res)=>{
         })
 })
 
+//login function with username and password
 router.post("/users/login", (req, res) => {
     let login = req.body
 
@@ -174,6 +180,7 @@ router.post("/users/login", (req, res) => {
         })
 })
 
+// function to destroy session and logout
 router.post("/users/logout", (req, res) => {
     // destroy the session
     req.session.destroy()
