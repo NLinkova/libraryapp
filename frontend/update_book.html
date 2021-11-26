@@ -30,27 +30,78 @@
       </div>
       <div class="mb-3">
         <label for="bookTitle">Book Title:</label>
-        <input type="text" id="bookTitle" name="bookTitle" />
+        <input
+          type="text"
+          id="bookTitle"
+          name="bookTitle"
+          pattern="[A-Za-z ]{3,32}"
+          maxlength="32"
+          required
+        />
+        <div id="first_error" class="error">
+          Please enter only latin characters
+        </div>
       </div>
       <div class="mb-3">
         <label for="originalTitle">Original Title:</label>
-        <input type="text" id="originalTitle" name="originalTitle" />
+        <input
+          type="text"
+          id="originalTitle"
+          name="originalTitle"
+          pattern="[A-Za-z ]{3,32}"
+          maxlength="32"
+        />
+        <div id="first_error" class="error">
+          Please enter only latin characters
+        </div>
       </div>
       <div class="mb-3">
         <label for="year">Year of Publication:</label>
-        <input type="number" id="year" name="yearofPublication" />
+        <input
+          type="number"
+          id="year"
+          name="yearofPublication"
+          pattern="[0-9]{4,}"
+          maxlength="4"
+        />
+        <div id="date_error" class="error">Please type date only</div>
       </div>
       <div class="mb-3">
         <label for="genre">Genre:</label>
-        <input type="text" id="genre" name="genre" />
+        <input
+          type="text"
+          id="genre"
+          name="genre"
+          pattern="[A-Za-z ]{3,32}"
+          maxlength="32"
+        />
+        <div id="first_error" class="error">
+          Please enter only latin characters
+        </div>
       </div>
       <div class="mb-3">
         <label for="millionsSold">Millions Sold:</label>
-        <input type="number" id="millionsSold" name="millionsSold" />
+        <input
+          type="number"
+          id="millionsSold"
+          name="millionsSold"
+          pattern="[0-9]{1, }"
+          maxlength="6"
+        />
+        <div id="date_error" class="error">Please type only number</div>
       </div>
       <div class="mb-3">
         <label for="language">Language written:</label>
-        <input type="text" id="language" name="languageWritten" />
+        <input
+          type="text"
+          id="language"
+          name="languageWritten"
+          pattern="[A-Za-z ]{3,32}"
+          maxlength="32"
+        />
+        <div id="first_error" class="error">
+          Please enter only latin characters
+        </div>
       </div>
       <div class="mb-3">
         <label for="cover-image">Cover Image:</label>
@@ -60,7 +111,7 @@
       </div>
       <div class="mb-3">
         <label for="author">Author:</label>
-        <select name="authorID" id="author">
+        <select name="authorID" id="author" required>
           <option value="">Select...</option>
         </select>
       </div>

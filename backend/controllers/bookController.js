@@ -91,7 +91,6 @@ router.post("/books/update", (req, res) => {
         if (results.affectedRows > 0) {
             res.status(200).json("book updated")
             logModel.updateLogEntryBook(book.bookID, user.userID)
-            // logModel.addLogEntryBook(results.insertId, user.userID)
         } else {
             res.status(404).json("book not found")
         }

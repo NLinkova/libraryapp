@@ -35,6 +35,9 @@
           maxlength="32"
           required
         />
+        <div id="first_error" class="error">
+          Please enter only latin characters
+        </div>
       </div>
       <div class="mb-3">
         <label for="lastName">Last Name:</label>
@@ -46,6 +49,9 @@
           pattern="[A-Za-z ]{1,32}"
           maxlength="32"
         />
+        <div id="first_error" class="error">
+          Please enter only latin characters
+        </div>
       </div>
       <div class="mb-3">
         <label for="email">Email:</label>
@@ -57,6 +63,9 @@
           pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
           maxlength="40"
         />
+        <div id="email_error" class="error">
+          Please enter only latin characters, @ and .
+        </div>
       </div>
       <div class="mb-3">
         <label for="username">Username:</label>
@@ -69,6 +78,9 @@
           maxlength="32"
           required
         />
+        <div id="first_error" class="error">
+          Please enter only latin characters
+        </div>
       </div>
       <div class="mb-3">
         <label for="password">Password:</label>
@@ -77,10 +89,13 @@
           id="password"
           name="password"
           placeholder="enter password"
-          pattern="[A-Za-z ]{3,32}"
+          pattern="[A-Za-z0-9]{4,}"
           maxlength="32"
           required
         />
+        <div id="first_error" class="error">
+          Please enter only min 3 symbols, letters and numbers
+        </div>
       </div>
       <div class="mb-3">
         <label for="accessRights">Access Right</label>
@@ -88,11 +103,12 @@
           type="text"
           id="accessRights"
           name="accessRights"
-          placeholder="rights user or admin"
+          placeholder="access rights user or admin"
           pattern="[A-Za-z ]{4,}"
           maxlength="5"
           required
         />
+        <div id="first_error" class="error">Type "user" or "admin"</div>
       </div>
       <button type="button" class="btn btn-primary" onclick="postCreateUser()">
         Submit

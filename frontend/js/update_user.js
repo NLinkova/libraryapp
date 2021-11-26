@@ -25,6 +25,28 @@ if (userId) {
 function postUpdateUser() {
     // Get access to the create user form element
     let updateUserForm = document.getElementById("update-user-form")
+
+        //client side validation on fields
+        if (!updateUserForm.firstName.checkValidity()) {
+            updateUserForm.firstName.focus();
+            return;
+        } else if (!updateUserForm.lastName.checkValidity()) {
+            updateUserForm.lastName.focus();
+            return;
+        } else if (!updateUserForm.email.checkValidity()) {
+            updateUserForm.email.focus();
+            return;
+        } else if (!updateUserForm.username.checkValidity()) {
+            updateUserForm.username.focus();
+            return;
+        } else if (!updateUserForm.password.checkValidity()) {
+            updateUserForm.password.focus();
+            return;
+        } else if (!updateUserForm.accessRights.checkValidity()) {
+            updateUserForm.accessRights.focus();
+            return;
+        };
+
     // Convert the user form fields into JSON. creates all strings and values
     let formDataJSON = JSON.stringify(Object.fromEntries(new FormData(updateUserForm))); // stringify covnerts everyting to json string
     

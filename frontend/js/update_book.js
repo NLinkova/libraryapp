@@ -22,11 +22,34 @@ if (bookId) {
         })
 }
 
-
-
 function postUpdateBook() {
     // Get access to the create user form element
     let updateBookForm = document.getElementById("update-book-form")
+
+    //client side validation on fields
+    if (!updateBookForm.bookTitle.checkValidity()) {
+        updateBookForm.bookTitle.focus();
+        return;
+    } else if (!updateBookForm.originalTitle.checkValidity()) {
+        updateBookForm.originalTitle.focus();
+        return;
+    } else if (!updateBookForm.yearofPublication.checkValidity()) {
+        updateBookForm.yearofPublication.focus();
+        return;
+    } else if (!updateBookForm.genre.checkValidity()) {
+        updateBookForm.genre.focus();
+        return;
+    } else if (!updateBookForm.millionsSold.checkValidity()) {
+        updateBookForm.millionsSold.focus();
+        return;
+    } else if (!updateBookForm.languageWritten.checkValidity()) {
+        createBookForm.languageWritten.focus();
+        return;
+    } else if (!updateBookForm.authorID.checkValidity()) {
+        updateBookForm.authorID.focus();
+        return;
+    };
+
     // Convert the book form fields into JSON. creates all strings and values
     let formDataJSON = JSON.stringify(Object.fromEntries(new FormData(updateBookForm))); // stringify covnerts everyting to json string
     console.log(formDataJSON)

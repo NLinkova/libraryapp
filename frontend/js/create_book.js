@@ -1,6 +1,31 @@
-function postCreateBook() {
+function postCreateBook() {  
     // Get access to the create user form element
     let createBookForm = document.getElementById("create-book-form")
+
+    //client side validation on fields
+    if (!createBookForm.bookTitle.checkValidity()) {
+        createBookForm.bookTitle.focus();
+        return;
+    } else if (!createBookForm.originalTitle.checkValidity()) {
+        createBookForm.originalTitle.focus();
+        return;
+    } else if (!createBookForm.yearofPublication.checkValidity()) {
+        createBookForm.yearofPublication.focus();
+        return;
+    } else if (!createBookForm.genre.checkValidity()) {
+        createBookForm.genre.focus();
+        return;
+    } else if (!createBookForm.millionsSold.checkValidity()) {
+        createBookForm.millionsSold.focus();
+        return;
+    } else if (!createBookForm.languageWritten.checkValidity()) {
+        createBookForm.languageWritten.focus();
+        return;
+    } else if (!createBookForm.authorID.checkValidity()) {
+        createBookForm.authorID.focus();
+        return;
+    };
+
     // Convert the user form fields into JSON. creates all strings and values
     let formDataJSON = JSON.stringify(Object.fromEntries(new FormData(createBookForm))); // stringify covnerts everyting to json string
     console.log(formDataJSON)
@@ -52,16 +77,3 @@ fetch("/api/books")
                 </option>`
         }
 })
-
-// fetch("/api/books")
-//     .then(res => res.json())
-//     .then((books) => {
-//         let bookSelect = document.getElementById("cover-image")
-
-//         for (let book of books) {
-//             bookSelect.innerHTML 
-//             += `<option value="${book.coverImagePath}">
-//                     ${book.coverImagePath}
-//                 </option>`
-//         }
-// })

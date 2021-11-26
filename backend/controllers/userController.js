@@ -15,6 +15,7 @@ router.get("/users", (req, res) => {
         //stop the response handler here
         return
     }
+
     userModel.getAllUsers()
         .then((result) => {
             res.status(200).json(result)

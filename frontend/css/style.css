@@ -48,3 +48,17 @@ img {
 input:not(:focus):not(:placeholder-shown):invalid {
     border: red solid 2px;
 }
+
+input:required:invalid, input:focus:invalid {
+    outline: none;
+}
+
+input:not(:focus):not(:placeholder-shown):invalid + .error {
+    display: block;
+} 
+
+.error {    
+    display: none;
+    color: rgb(99, 26, 99);
+    font-size: 14px;
+}
