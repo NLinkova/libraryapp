@@ -1,6 +1,6 @@
 fetch("api/authors")
     .then(response => response.json())
-    .then(books => {
+    .then(authors => {
         console.log(authors)
          let author_list = document.getElementById("author-table")
 
