@@ -7,19 +7,16 @@ Author - Book - User - Log
 ### Buseness rules
 
 - Form validation on all forms
-- All forms input to be sanitised prior to intertion into the
+- All forms input are sanitised prior to intertion into the
 - Authentication checks on all privileged functions
-- When adding/editing a book, one needs list og authors in picklist
-- Update / delete needs to be an option in show authors and books
 
 ### User interface
 
 ### Anonimous:
 
-TABLE GET all books listing
 FORM PUT login
 
-### Authenticatied:
+### Authenticated:
 
 TABLE GET All books listing
 FORM PUT Add new book
@@ -38,9 +35,8 @@ BUTTON DELETE Delete users
 ### Anonimous:
 
 app.post('api/login')
-app.get('api/allbooks')
 
-### Authenticatied:
+### Authenticated:
 
 app.put('api/addbook') 201
 app.patch('api/updatebook')202
@@ -68,12 +64,8 @@ Run node server
 
 ...
 npm install
-mysql -u root -p books < sql/schema.sql
+mysql2 -u root -p books < sql/schema.sql
 node server.js
 ...
 
-Admin credentials:
-Username: Nat
-Password: 1234
-
-to start: opent terminal and execute command 'npm start'
+to start: open terminal and execute command 'npm start'
