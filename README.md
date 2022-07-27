@@ -1,4 +1,4 @@
-Admin panel Popular Books
+Website with popular books, admin panel and 2 types of users. Developed using JS, Node and Express. Admin panel. Sessions and authorization.  Bootstrap layout. 
 
 ### Entities
 
